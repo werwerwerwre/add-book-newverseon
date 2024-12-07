@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Додати Книгу</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">На головну</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Додати нову книгу</h1>
+    <form id="book-form">
+      <label for="title">Назва книги</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="content">Контент книги</label>
+      <textarea id="content" name="content" required></textarea>
+
+      <label for="cover">Обкладинка</label>
+      <input type="file" id="cover" name="cover" accept="image/*" required>
+
+      <label for="author">Автор</label>
+      <input type="text" id="author" name="author" required>
+
+      <button type="submit">Додати книгу</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

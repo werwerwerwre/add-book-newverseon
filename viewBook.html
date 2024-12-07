@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перегляд книги</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="book-detail">
+        <h1 id="book-title"></h1>
+        <p id="book-author"></p>
+        <img id="book-cover" src="" alt="Обкладинка книги">
+        <div id="book-content"></div>
+    </div>
+
+    <script>
+        let bookId = new URLSearchParams(window.location.search).get('bookId');
+
+        fetch(`/getBook?bookId=${bookId}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('book-title').innerText = data.title;
+                document.getElementById('book-author').innerText = `Автор: ${data.author}`;
+                document.getElementById('book-cover').src = data.coverImage;
+                document.getElementById('book-content').innerText = data.content;
+            });
+    </script>
+</body>
+</html>

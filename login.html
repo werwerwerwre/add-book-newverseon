@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-form">
+        <h2>Вхід</h2>
+        <input type="text" id="nickname" placeholder="Введіть нік" required>
+        <button onclick="login()">Увійти</button>
+    </div>
+
+    <script>
+        function login() {
+            let nickname = document.getElementById('nickname').value;
+            // Запит до сервера для перевірки ніка
+            fetch(`/login?nickname=${nickname}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Невірний нік');
+                    }
+                });
+        }
+    </script>
+</body>
+</html>
